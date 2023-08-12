@@ -1,0 +1,88 @@
+[
+    {
+        "title": "Alto",
+        "price": "1 Lakh",
+        "category": "Car"
+    },
+    {
+        "title": "Iphone14",
+        "price": "1 Lakh",
+        "category": "Mobile"
+    },
+    {
+        "title": "kurta",
+        "price": "1 Thousand",
+        "category": "clothing"
+    },
+    {
+        "title": "verna",
+        "price": "15 Lakh",
+        "category": "Car"
+    },
+    {
+        "title": "Tie",
+        "price": "200 rupee",
+        "category": "clothing"
+    },
+    {
+        "title": "Samsung M51",
+        "price": "25 Thousand",
+        "category": "Mobile"
+    },
+    {
+        "title": "Thar",
+        "price": "10 Lakh",
+        "category": "Car"
+    },
+    {
+        "title": "Saree",
+        "price": "3 Thousand",
+        "category": "clothing"
+    },
+    {
+        "title": "T-shirt",
+        "price": "600 Rupee",
+        "category": "clothing"
+    },
+    {
+        "title": "Harrier",
+        "price": "20 Lakh",
+        "category": "Car"
+    },
+    {
+        "title": "Poco F31",
+        "price": "20 Thousand",
+        "category": "Mobile"
+    },
+    {
+        "title": "Carens",
+        "price": "30 Lakh",
+        "category": "Car"
+    },
+    {
+        "title": "Nighty",
+        "price": "300 rupee",
+        "category": "clothing"
+    },
+    {
+        "title": "BMW S Class",
+        "price": "90 Lakh",
+        "category": "Car"
+    },
+    {
+        "title": "One Plus",
+        "price": "40 Thousand",
+        "category": "Mobile"
+    },
+    {
+        "title": "Blazzer",
+        "price": "8 Thousand",
+        "category": "clothing"
+    },
+    {
+        "title": "Swift",
+        "price": "6 Lakh",
+        "category": "Car"
+    }
+]
+

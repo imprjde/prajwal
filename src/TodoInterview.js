@@ -1,7 +1,6 @@
 import axios from "axios";
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import Popup from "./Popup";
 // https://64d65213754d3e0f1361f357.mockapi.io/todo
 
 const App = () => {
@@ -10,15 +9,11 @@ const App = () => {
   const [todo, setTodo] = useState("");
   const [editData, setEditData] = useState(null);
   const [editState, setEditState] = useState(false);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const getData = () => {
     setIsLoading(true);
     axios
       .get("https://64d65213754d3e0f1361f357.mockapi.io/todo")
-      .then((resp) => {
-        setData(resp.data);
-        setIsPopupOpen(false);
-      })
+      .then((resp) => setData(resp.data))
       .then(() => setIsLoading(false));
   };
   useEffect(() => {
@@ -49,34 +44,13 @@ const App = () => {
       });
   };
 
-  const deleteAllData = async () => {
-    // setIsLoading(true);
-    // axios
-    //   .delete("https://64d65213754d3e0f1361f357.mockapi.io/todo")
-    //   .then(() => {
-    //     getData();
-    //     setIsLoading(false);
-    //   });
-    setIsLoading(true);
-    const deletePromises = data.map((item) =>
-      axios.delete(
-        `https://64d65213754d3e0f1361f357.mockapi.io/todo/${item.id}`
-      )
-    );
-
-    Promise.all(deletePromises)
-      .then(() => {
-        setIsPopupOpen(false);
-      })
-      .finally(() => {
-        getData();
-        setIsLoading(false);
-      });
-  };
+  const deleteAllData = () => {};
 
   const handleEdit = (obj) => {
     setEditData(obj);
   };
+
+  console.log(editData);
 
   const putData = (e) => {
     e.preventDefault();
@@ -99,9 +73,6 @@ const App = () => {
   };
   return (
     <div className="App">
-      {isPopupOpen && (
-        <Popup setIsPopupOpen={setIsPopupOpen} deleteAllData={deleteAllData} />
-      )}
       {!editState && (
         <form className="formm" onSubmit={postData}>
           <input
@@ -131,45 +102,31 @@ const App = () => {
           </button>
         </form>
       )}
-
       {isLoading ? (
         <h2 className="loader">Loading...</h2>
       ) : (
         data &&
         data.map((data) => (
           <div className="insideMap" key={data.id}>
-            <h5>
-              {window.innerWidth > 762
-                ? data.todo
-                : data.todo.length > 15
-                ? data.todo.slice(1, 15) + " ..."
-                : data.todo}
-            </h5>
-            <div className="btndiv">
-              <button
-                className="betnn"
-                onClick={() => {
-                  handleEdit(data);
-                  setEditState(true);
-                }}
-              >
-                Edit
-              </button>
-              <button className="betn" onClick={() => deleteData(data.id)}>
-                Delete
-              </button>
-            </div>
+            <h5>{data.todo}</h5>
+            <button
+              className="betnn"
+              onClick={() => {
+                handleEdit(data);
+                setEditState(true);
+              }}
+            >
+              Edit
+            </button>
+            <button className="betn" onClick={() => deleteData(data.id)}>
+              Delete
+            </button>
           </div>
         ))
       )}
 
-      {data.length >= 2 && !isLoading && (
-        <button
-          className="btnn"
-          onClick={() => {
-            setIsPopupOpen(true);
-          }}
-        >
+      {data.length >= 1 && !isLoading && (
+        <button className="btnn" onClick={deleteAllData}>
           Delete All Todo
         </button>
       )}
